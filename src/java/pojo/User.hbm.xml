@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 26 Nov, 2015 10:41:01 AM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="pojo.User" table="user" catalog="reservation_system">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <property name="userName" type="string">
+            <column name="user_name" length="100" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="50" />
+        </property>
+        <property name="type" type="byte">
+            <column name="type" not-null="true">
+                <comment>1-&gt;super admin,2-&gt;shop admin,3-&gt;shop staff,4-&gt;site user,5-&gt;shop user</comment>
+            </column>
+        </property>
+        <property name="shopId" type="java.lang.Integer">
+            <column name="shop_id" />
+        </property>
+        <property name="title" type="string">
+            <column name="title" length="10" not-null="true" />
+        </property>
+        <property name="imageUrl" type="string">
+            <column name="image_url" />
+        </property>
+        <property name="imagePath" type="string">
+            <column name="image_path" />
+        </property>
+        <property name="lastLoginDate" type="timestamp">
+            <column name="last_login_date" length="19" />
+        </property>
+        <property name="status" type="byte">
+            <column name="status" not-null="true" />
+        </property>
+        <property name="language" type="byte">
+            <column name="language" not-null="true" />
+        </property>
+        <property name="addedBy" type="int">
+            <column name="added_by" not-null="true">
+                <comment>0-&gt;registration , other-&gt;shop id</comment>
+            </column>
+        </property>
+        <property name="firstBooking" type="byte">
+            <column name="first_booking" not-null="true">
+                <comment>1 : user never booked or nvr given the detail info, --- 0:user booked atleast once or try to book and gave user more info</comment>
+            </column>
+        </property>
+        <property name="createDate" type="timestamp">
+            <column name="create_date" length="19" not-null="true" />
+        </property>
+        <property name="updateDate" type="timestamp">
+            <column name="update_date" length="19" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
